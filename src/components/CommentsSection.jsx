@@ -26,7 +26,7 @@ export default function ComponentName() {
     datatime: "2025-4-12 12:12:33",
   }].map((c, i) => {
     return <>
-      <li>
+      <li key={i}>
         <div className="commenter"><span>{c.commenter}</span><span>{c.datatime}</span></div>
         <div className="comment-content"><p>{c.content}</p></div>
         <div className="comment-actions">
