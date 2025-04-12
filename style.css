@@ -32,6 +32,13 @@ button:active {
   box-shadow: none;
 }
 
+hr {
+  background-color: var(--fg);
+  border-color: var(--fg);
+  border: none;
+  height: 1px;
+}
+
 #root {
   display: flex;
   flex-direction: column;
@@ -95,6 +102,9 @@ header {
 
   li {
     list-style: none;
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px var(--fg) solid;
   }
 
   ul {
@@ -141,16 +151,15 @@ article img {
 #blogs {
   ul {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 2rem;
     padding: 0;
     margin: 0;
 
     li {
+      flex: 1;
       list-style: none;
       border: 1px var(--fg) solid;
-      max-width: 25rem;
       overflow: hidden;
       white-space: nowrap;
 
@@ -165,6 +174,7 @@ article img {
         p {
           flex: 1;
           margin: 0;
+          text-overflow: ellipsis;
         }
 
         div {
@@ -195,5 +205,16 @@ article img {
     li:hover {
       box-shadow: 0px 0px 5px var(--fg);
     }
+  }
+}
+
+/*
+ * Media queries
+ */
+
+@media screen and (min-width: 786px) {
+  main {
+    width: 786px;
+    align-self: center;
   }
 }
