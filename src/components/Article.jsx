@@ -30,7 +30,7 @@ export default function Article() {
       <div id="author-date-container">
         <span id="author-name">{article.author}</span><span id="article-date">{article.publish_date}</span>
       </div>
-      <h1>{article.title}</h1>
+      <h2>{article.title}</h2>
       <div id="content-container">
         {article.content}
       </div>
