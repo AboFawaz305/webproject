@@ -24,18 +24,16 @@ export default function ComponentName() {
     commenter: "Mohammed",
     content: "Good!",
     datatime: "2025-4-12 12:12:33",
-  }].map((c, i) => {
-    return <>
-      <li key={i}>
-        <div className="commenter"><span>{c.commenter}</span><span>{c.datatime}</span></div>
-        <div className="comment-content"><p>{c.content}</p></div>
-        <div className="comment-actions">
-          <button className="comment-reply">Reply</button>
-          <button className="comment-report">Report</button>
-        </div>
-      </li>
-    </>
-  })
+  }].map((c, i) =>
+    <li key={i}>
+      <div className="commenter"><span>{c.commenter}</span><span>{c.datatime}</span></div>
+      <div className="comment-content"><p>{c.content}</p></div>
+      <div className="comment-actions">
+        <button className="comment-reply">Reply</button>
+        <button className="comment-report">Report</button>
+      </div>
+    </li>
+  )
 
   return <>
     <aside>
