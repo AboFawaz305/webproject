@@ -6,8 +6,10 @@ export default function Main() {
   return (
     <>
       <Navbar />
-      <span>Main Layout: </span>
-      <Outlet />
+      <main>
+        <span>Main Layout: </span>
+        <Outlet />
+      </main>
       <Footer />
     </>
   )
