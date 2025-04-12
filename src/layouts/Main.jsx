@@ -7,7 +7,6 @@ export default function Main() {
     <>
       <Navbar />
       <main>
-        <span>Main Layout: </span>
         <Outlet />
       </main>
       <Footer />

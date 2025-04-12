@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg: #ffebc7;
+  --fg: #ff5900;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+button {
+  appearance: none;
+  cursor: pointer;
+  background-color: inherit;
+  border: 1px var(--fg) solid;
+  border-radius: 5px;
+  padding: .5rem .9rem;
+  color: inherit;
+}
+
+button:hover {
+  box-shadow: 1px 1px 5px var(--fg);
+}
+
+button:active {
+  box-shadow: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+
+  a {
+    color: inherit;
+  }
+
+  a::before {
+    content: "\""
+  }
+
+  a::after {
+    content: "\""
+  }
+
+  a:hover {
+    text-decoration: underline;
+    text-shadow: 0px 0px 1px var(--fg);
+  }
+
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+    }
+
+    li a {
+      apperance: none;
+      text-decoration: none;
+      color: inherit;
+      padding: 1rem;
+      display: block;
+    }
+
+    li a:hover {
+      text-decoration: underline;
+      text-shadow: 0px 0px 1px var(--fg);
+    }
+  }
+}
+
+#comments {
+  margin-top: 2rem;
+
+  li {
+    list-style: none;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  #comments-actions,
+  .comment-actions {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: .5rem;
+  }
+
+  .comment-actions {
+    flex-direction: row-reverse;
+  }
+
+  .commenter {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+}
+
+#call-to-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: .5rem;
+}
+
+#author-date-container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+article img {
+  display: block;
+  text-align: center;
+}
+
+#blogs {
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+
+    li {
+      list-style: none;
+      border: 1px var(--fg) solid;
+      max-width: 25rem;
+      overflow: hidden;
+      white-space: nowrap;
+
+
+      a {
+        text-decoration: none;
+        text-shadow: none;
+        display: inline-block;
+        padding: 1rem;
+
+        h2,
+        p {
+          flex: 1;
+          margin: 0;
+        }
+
+        div {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+
+          div {
+            flex-direction: column;
+          }
+        }
+      }
+
+
+      a:active {
+        box-shadow: none;
+      }
+
+      a::before {
+        content: none;
+      }
+
+      a::after {
+        content: none;
+      }
+    }
+
+    li:hover {
+      box-shadow: 0px 0px 5px var(--fg);
+    }
+  }
+}

@@ -23,15 +23,17 @@ export default function BlogsPage() {
       tilte: "an article",
       img_src: "/assets/title",
       img_alt: "Blog 3 image",
-      summary: "This blog talks about this and that...",
+      summary: "TThis blog talks about this and that...This blog talks about this and that...his blog talks about this and that...",
     },
   ].map((b, i) =>
     <li key={b.bid}>
       <Link to={"/blogs/" + b.bid}>
         <div>
           <img src={b.img_src} alt={b.img_alt} />
-          <h2>{b.tilte}</h2>
-          <p>{b.summary}</p>
+          <div>
+            <h2>{b.tilte}</h2>
+            <p>{b.summary}</p>
+          </div>
         </div>
       </Link>
     </li>
