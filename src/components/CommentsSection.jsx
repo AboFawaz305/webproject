@@ -27,6 +27,7 @@ export default function ComponentName() {
   }].map((c, i) =>
     <li key={i}>
       <div className="commenter"><span>{c.commenter}</span><span>{c.datatime}</span></div>
+      <hr />
       <div className="comment-content"><p>{c.content}</p></div>
       <div className="comment-actions">
         <button className="comment-reply">Reply</button>
