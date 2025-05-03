@@ -1,34 +1,36 @@
 import { useParams } from "react-router"
+import useSWR from "swr";
 
-export default function Article() {
+const fetcher = (url) => fetch(url).then(res => res.json())
+
+export default function Article({ showComments, SetShowComments }) {
   const { bid } = useParams()
   //TODO: Fetch Article data from the server
+  const { data, isLoading, error } = useSWR("http://localhost:80/articles", fetcher);
+  SetShowComments(true)
+  if (isLoading)
+    return (<span>Loading the article...</span>)
 
   // Dummy Data
-  const article = {
-    id: bid,
-    title: "Article Tiltle",
-    content: `This an example article with a lot of lorem ipsum text.Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-
-    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-
-    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-
-    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-
-    Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.`,
-    author: "Azooz",
-    publish_date: "2025-4-12",
-    title_img_src: "/titles-imgs/1",
-    title_img_alt: "An image of an aticle",
-    have_a_quote: true,
-    quote: "Live is good bro.",
+  let article = {}
+  for (let i = 0; data && i < data.length; i++) {
+    if (data[i]['article_id'] == bid) {
+      article = data[i]
+      break
+    }
   }
+  if (!article['article_id']) {
+    SetShowComments(false);
+    return <>
+      <span>Article not Found</span>
+    </>
+  }
+
   return <>
     <article>
       <img src={article.title_img_src} alt={article.title_img_alt} />
       <div id="author-date-container">
-        <span id="author-name">{article.author}</span><span id="article-date">{article.publish_date}</span>
+        <span id="author-name">{article.username}</span><span id="article-date">{article.publish_date}</span>
       </div>
       <h2>{article.title}</h2>
       <div id="content-container">

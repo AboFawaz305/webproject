@@ -1,43 +1,26 @@
 import { Link } from "react-router"
-export default function BlogsPage() {
-  //TODO: Fetch blogs data from the server.
+import useSWR from "swr";
 
-  // Dummy blog data
-  const blogs = [
-    {
-      bid: 1,
-      tilte: "an Amazing article",
-      img_src: "/assets/title",
-      img_alt: "Blog 1 image",
-      summary: "This blog talks about this and that...",
-    },
-    {
-      bid: 2,
-      tilte: "a Technical one",
-      img_src: "/assets/title",
-      img_alt: "Blog 2 image",
-      summary: "This blog talks about this and that...",
-    },
-    {
-      bid: 3,
-      tilte: "an article",
-      img_src: "/assets/title",
-      img_alt: "Blog 3 image",
-      summary: "TThis blog talks about this and that...This blog talks about this and that...his blog talks about this and that...",
-    },
-  ].map((b, i) =>
-    <li key={b.bid}>
-      <Link to={"/blogs/" + b.bid}>
-        <div>
-          <img src={b.img_src} alt={b.img_alt} />
+const fetcher = (url) => fetch(url).then(res => res.json())
+export default function BlogsPage() {
+  const { data, isLoading, error } = useSWR("http://localhost:80/articles", fetcher);
+  console.log(data, isLoading, error)
+
+  let blogs = <></>;
+  if (data)
+    blogs = data.map((b, i) =>
+      <li key={b.article_id}>
+        <Link to={"/blogs/" + b.article_id}>
           <div>
-            <h2>{b.tilte}</h2>
-            <p>{b.summary}</p>
+            <img src={b.title_img_src} alt={b.title_img_alt} />
+            <div>
+              <h2>{b.tilte}</h2>
+              <p>{b.summary}</p>
+            </div>
           </div>
-        </div>
-      </Link>
-    </li>
-  )
+        </Link>
+      </li>
+    )
   return <>
     <article>
       <section id="blogs">

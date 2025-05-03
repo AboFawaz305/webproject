@@ -1,9 +1,11 @@
-import { Link } from "react-router"
+import { Link, useOutletContext } from "react-router"
 
-export default function Navbar() {
+export default function Navbar({ username, isLoggedIn }) {
+  console.log(username)
+
   return <>
     <header>
-      <img src="/assets/logo.png" alt="Blog logo" id="logo" />
+      <Link to="/home" id="logo">✍️</Link>
       <nav>
         <ul>
           <li><Link to="/home">Home</Link></li>
@@ -12,7 +14,9 @@ export default function Navbar() {
           <li><Link to="/contact">Contact me</Link></li>
         </ul>
       </nav>
-      <div id="#actions"></div>
+      <div id="#actions">
+        {isLoggedIn && <span>Hello {username}</span>}
+      </div>
     </header>
   </>
 }

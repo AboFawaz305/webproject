@@ -1,0 +1,23 @@
+Article:
+  id: Key Int
+  title: NVarchar(255)
+  content: NVarchar(MAX)
+  summary: Varchar(255)
+  author: Varchar(64)
+  publish_date: DATE
+  title_img_src: Varchar(255)
+  title_img_alt: Varchar(255)
+  quote: Varchar(255)
+
+Comments:
+  id
+  commenter: Varchar(64)
+  content: Varchar(255)
+  datetime: DATETIME
+
+
+Users:
+  id
+  username: Varchar(64)
+  hashed_password: Varchar(255)
+
