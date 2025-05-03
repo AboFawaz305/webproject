@@ -45,16 +45,9 @@ export default function NewArticlePage() {
 
     if (!response.ok) {
       console.log("Request ERROR: ", response.status);
+      return
     }
-
-    console.log(response)
-
-    const datajson = await response.json();
-
-    if (datajson['success']) {
-      location.href = "/blogs";
-    }
-    SetData(datajson);
+    location.href = "/blogs"
 
   }
 

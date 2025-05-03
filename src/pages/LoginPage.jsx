@@ -61,7 +61,7 @@ export default function LoginPage() {
     return (
       <form action="">
         <fieldset>
-          <legend>Register</legend>
+          <legend>Login</legend>
           <label htmlFor="username">
             Enter Your Username
             <input type="text" id="username" name="username" onChange={usernameOnChange} />
