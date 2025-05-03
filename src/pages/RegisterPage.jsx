@@ -34,7 +34,7 @@ export default function RegisterPage() {
       SetMsg("Passwords dont match.");
       return
     }
-    const response = await fetch('http://localhost:80/register', {
+    const response = await fetch('http://mywebprojectapi.aabdulaziz.engineer/register', {
       method: "POST",
       body: JSON.stringify({
         username: username,
