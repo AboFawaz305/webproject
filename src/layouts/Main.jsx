@@ -15,7 +15,7 @@ export default function Main() {
           {
             isLoggedIn: isLoggedIn,
             SetIsLoggedIn: SetIsLoggedIn,
-            username: useState,
+            username: username,
             SetUsername: SetUsername
           }
         } />
