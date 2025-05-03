@@ -23,7 +23,7 @@ export default function LoginPage() {
       return
     }
 
-    const response = await fetch('http://webproject.aabdulaziz.engineer/api/login', {
+    const response = await fetch('https://webproject.aabdulaziz.engineer/api/login', {
       method: "POST",
       body: JSON.stringify({
         username: username,
