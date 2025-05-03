@@ -3,7 +3,7 @@ import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then(res => res.json())
 export default function BlogsPage() {
-  const { data, isLoading, error } = useSWR("http://mywebprojectapi.aabdulaziz.engineer/articles", fetcher);
+  const { data, isLoading, error } = useSWR("http://webproject.aabdulaziz.engineer/api/articles", fetcher);
   console.log(data, isLoading, error)
 
   let blogs = <></>;

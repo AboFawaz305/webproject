@@ -6,7 +6,7 @@ const fetcher = (url) => fetch(url).then(res => res.json())
 export default function Article({ showComments, SetShowComments }) {
   const { bid } = useParams()
   //TODO: Fetch Article data from the server
-  const { data, isLoading, error } = useSWR("http://mywebprojectapi.aabdulaziz.engineer//articles", fetcher);
+  const { data, isLoading, error } = useSWR("http://webproject.aabdulaziz.engineer/api/articles", fetcher);
   SetShowComments(true)
   if (isLoading)
     return (<span>Loading the article...</span>)
