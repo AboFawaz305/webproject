@@ -10,7 +10,7 @@ export default function NewArticlePage() {
   const [quote, setQuote] = useState("");
   const [msg, setMsg] = useState("");
   const { isLoggedIn, username } = useOutletContext()
-  if (isLoggedIn)
+  if (!isLoggedIn)
     return <> Please <Link to="/login">login</Link> to create an article </>
 
   const submitArticle = async (e) => {
