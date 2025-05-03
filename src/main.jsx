@@ -10,6 +10,7 @@ import BlogPage from './pages/BlogPage.jsx'
 import LoginPage from './pages/LoginPage.jsx'
 import RegisterPage from './pages/RegisterPage.jsx'
 import PageNotFoundPage from './pages/PageNotFoundPage.jsx'
+import NewArticlePage from './pages/NewArticlePage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
         path: "blogs",
         children: [
           { index: true, Component: BlogsPage },
-          { path: ":bid", Component: BlogPage }
+          { path: ":bid", Component: BlogPage },
+          { path: "new", Component: NewArticlePage }
         ]
       },
       { path: "login", Component: LoginPage },
