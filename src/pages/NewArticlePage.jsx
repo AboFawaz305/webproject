@@ -27,6 +27,7 @@ export default function NewArticlePage() {
       return
     }
 
+    console.log(username);
     const response = await fetch('https://webproject.aabdulaziz.engineer/api/articles', {
       method: "POST",
       body: JSON.stringify({
