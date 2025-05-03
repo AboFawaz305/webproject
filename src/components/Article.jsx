@@ -33,6 +33,7 @@ export default function Article({ showComments, SetShowComments }) {
         <span id="author-name">{article.username}</span><span id="article-date">{article.publish_date}</span>
       </div>
       <h2>{article.title}</h2>
+      {article.quote != "" && <blockquote>{article.quote}</blockquote>}
       <div id="content-container">
         {article.content}
       </div>
